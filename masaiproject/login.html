@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     * body{
+            font-family: sans-serif;
+            width: 450px;
+            margin: auto;
+            margin-top: 10%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            justify-content: space-around;
+        }
+       
+        #form{
+            display: grid;
+            width: 400px;
+            gap:20px  ;
+            margin: auto; 
+            padding-bottom: 3%;
+        }
+        #sign{
+            width: 250px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            background-color: black;
+            color: rgb(238, 232, 232);
+        }
+        #create{
+            width: 250px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            background-color: white;
+        }
+
+        input{
+         
+            height: 30px;
+            font-size: 20px;
+        }
+        h1+h1{
+            line-height:1px ;
+           
+        }
+
+
+</style>
+<body>
+    <form id = "form">
+        <a href="https://www.google.com/search?sxsrf=APq-WBvlxG_G837JbPAzTmLOEvEA_pdtPw:1648718779698&q=Gmail&si=ANhW_NqMq05hm_NHatki2oB83qRn9HU6YTauVAJv82wgMbWR1Wi7um4pcLnc_IddeFquc594LWtDViM7nF7_Tvce50isU78IUr2AAVOy2saFLNmaRjxiF-AftGNA6tgm_TjMawG8tNAjv14ZiQPy6XlDco8JWyRxYG8RdvYE-c8stfBFrJT0YFd3KWXDJJpIqrp61abt23gvCKzUZqhX0T9KwittGnk_yDO1BQoForfwQ0D_tjCE_kT5yp3-2Fw8-pKvkO7JGSCHC_UG4OtsGZ7DKkAyde17gJjbHuZMQcKqipyC7lRY5AI%3D&sa=X&ved=2ahUKEwiM6cqJhPD2AhWvTWwGHZvvCb0QxA16BAgjEAU"><h1>sign in with google</h1></a>
+       <a href="https://www.facebook.com/"><h1>sign in with facebook</h1></a> 
+        <p>OR</p>
+        <!-- <input id = "email" type="text" placeholder = "Enter email"/> -->
+        <input id = "name"  type="email" placeholder = "Enter email" required/>
+
+        <input id = "pass"  type="text" placeholder = "Enter password" required />
+        <input id ="sign" type="submit" value="login"/>
+
+       
+       
+        <input id= "create" type="submit" value="Create Account"/>
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#create").addEventListener("click",function(){
+        window.location.href="create.html";
+    })
+    document.querySelector("form").addEventListener("submit", loginFun);
+    var userData = JSON.parse(localStorage.getItem("userCreds"));
+    console.log(userData);
+  
+    function loginFun() {
+      event.preventDefault();
+      var Email = document.querySelector("#name").value;
+      var Pass = document.querySelector("#pass").value;
+      //console.log(email, pass);
+  
+      for (var i = 0; i < userData.length; i++) {
+        console.log(userData[i]);
+        if (
+            userData[i].email == Email &&
+            userData[i].password == Pass
+        ) {
+          alert("login success");
+          window.location.href = "index1.html";
+          break;
+          
+        } else {
+          alert("login failed");
+          break
+        }
+      }
+    }
+  </script>
+  

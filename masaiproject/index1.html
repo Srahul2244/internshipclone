@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #sidebar{
+            position:fixed;
+            width:30%;
+            height: 100%;
+            background-color: black;
+            left:-30%;
+        }
+        #sidebar li{
+            color:white;
+            font-size: 30px;
+            padding: 30px;
+            border-bottom:1px solid gray;
+            text-align: center;
+        }
+        .toggle-btn{
+            position: absolute;
+            left: 105%;
+            top: 15px;
+        }
+        .toggle-btn span{
+            display: block;
+           background-color:  black;
+            width: 30px;
+            height: 5px;
+            margin: 3px;
+        }
+        #sidebar.active{
+            left: 0;;
+        }
+    </style>
+  
+<script>
+     function search(){
+    var searchText =document.getElementById("#search").value;
+    console.log(searchText)
+     };
+</script>
+    
+</head>
+<body>
+    <div id="sidebar" onclick="togglemenu()">
+        <div class="toggle-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li>Home</li>
+           <li>Internship</li>
+           <li>Jobs</li>
+            <li>
+                courses
+                <ul type="none">
+                    <a href="index2.html"target="blank"><li>online course</li></a>
+                    <li>online training</li>
+                </ul>
+                </li>
+     
+        </ul>
+    </div>
+    <div id="boss">
+    
+
+
+            <div class="shyam">
+                <div>
+                    <a href="cart.html"target="blank"><img id="bd1" src="data:image/png;base64,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" href="cart.html"target="blank"></a>
+                </div>
+                <div id="bd2">
+                    <a href="sign.html"target="blank">SIGN IN</a>
+                </div>
+                <div id="bd3">
+                    <a href="checkout.html"target="blank">checkout</a>
+                </div>
+                </div>
+        </div>
+    <div id="sec">
+        <div>
+        <h1>Let’s Get You <span class="sec">Ready</span></h1>
+       <p>The One Stop to Upgrade Your Resume. Expand Your Skillset. Do An Internship. Get Placed</p> 
+        </div>
+    <div id="third1">
+        <div id="form">
+    <div id="fr">
+        <div>
+        <input id="brd1"type="text"placeholder="cities.."style="border: 0px solid rgb(104, 103, 103);"/>
+        <div style="height:1px;width: 165px;border: 1px solid rgb(80, 79, 79);background-color:rgb(131, 130, 130);"></div>
+    </div>
+    <div style="height:20px;width:0px;background-color:rgb(73, 73, 73);border: 1px solid rgb(104, 103, 103);"></div>
+    <div>
+        <select name="cities" id="cities"style="height:20px;width: 30px;">
+           
+         <option  type ="checkbox"></option>
+           <option value="abhaypuri">abhaypuri</option>
+           <option value="Agara">Agara</option>
+           <option value="Adalaj">Adalaj</option>
+           <option value="ajmer">ajmer</option>
+           <option value="Lucknow">Lucknow</option>
+           <option value="aligarh">aligarh</option>
+           <option value="ballary">ballary</option>
+           <option value="ballia">ballia</option>
+           <option value="ballod">ballod</option>
+           <option value="chandausi">chandausi</option>
+           <option value="kavarti">kavarti</option>
+           <option value="kawarthi">kawarthi</option>
+           <option value="kawardha">kawardha</option>
+           <option value="manihari">manihari</option>
+           <option value="nalbari">nalbari</option>
+           <option value="pillibhit">pillibhit</option>
+           <option value="pinjora">pinjora</option>
+           <option value="Ovilandy">Ovilandy</option>
+           <option value="Rajkoat">Rajkoat</option>
+           <option value="Rajura">Rajura</option>
+          </select>
+       </div>
+    </div>
+<div id="ram3">
+    <div>
+        <input type="text"placeholder="type.."id="brd"style="border: 0px solid rgb(104, 103, 103);"/>
+        <div style="height:1px;width: 165px;border: 1px solid rgb(80, 79, 79);background-color:rgb(131, 130, 130);"></div>
+    </div>
+  
+    <div style="height:20px;width:0px;background-color:rgb(73, 73, 73);border: 1px solid rgb(104, 103, 103);"></div>
+    <div>
+        <select style="height:20px;width: 30px;"id="rama">
+            <option></option>
+            <option value="full time">full time</option>
+            <option value="part time">part time</option>
+            <option value="work from home /campus">work from home /campus</option>
+            
+        </select>
+    </div>
+    </div>
+    <div id="ram1">
+        <div>
+        <input type="text"placeholder="preference"id="brd2"style="border: 0px solid rgb(104, 103, 103)";/>
+        <div style="height:1px;width: 165px;border: 1px solid rgb(80, 79, 79);background-color:rgb(131, 130, 130);"></div>
+         </div>
+         
+         <div style="height:20px;width:0px;background-color:rgb(73, 73, 73);border: 1px solid rgb(104, 103, 103);"></div>
+        <div>
+        <select style="height:20px;width: 30px;"id="sk">
+            <option></option>
+            <option value="electrical engineering">electrical engineering</option>
+            <option value="mechanical engineerinng">mechanical engineerinng</option>
+            <option value="commputerscience enginerring">commputerscience enginerring </option>
+            <option value="electronics engineering">electronics engineering</option>
+            <option value="atrificial intelligance">atrificial intelligance</option>
+            <option value="inteligiance">inteligiance</option>
+        </select>
+        </div>
+    </div>
+  <div id="ram2">
+    <div>
+        <input id="search"onkeyup="search()"/>
+        <div style="height:1px;width: 165px;border: 1px solid rgb(80, 79, 79);background-color:rgb(131, 130, 130);"></div>
+    </div>
+  
+        <div>
+        <button>search</button>
+        </div>
+                   </div>
+   
+        </div>
+    </form>
+       </div>
+    
+   
+     <div id="bds">
+        <div>
+            <div style="height: 125px;width:500px;text-align: center;font-size: 25px;margin: auto;">
+                <p>PLETHORA OF OPPORTUNITIES <span class="sud">FOR<br> YOU</span></p>
+            </div>
+            <div style="height:1px;width:500px;border: 1px solid rgb(80, 79, 79);background-color:rgb(131, 130, 130);margin: auto;"></div>
+            <div style="height: 125px;width:500px;text-align: center;font-size: 15px;margin:auto;text-align: left;color: rgb(59, 58, 58);">
+               <p>We are on a mission to connect employers to young talent all over India. With our strong corporate network, it will no longer be a challenge to find the right internship for you</p> 
+            </div>
+      </div>
+
+        <div id="mark">
+            <div>
+                <img style ="color:white;"src="sfdy"alt="n"/>
+            </div>
+            <div>
+                <img  style ="color:white;"src="sfdy"alt="n"/>
+            </div>
+            <div>
+                <img  style ="color:white;"src="ugigi"alt="n"/>
+            </div>
+            <div>
+                <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+            <div>
+                 <img  style ="color:white;"src=""alt="n"/>
+            </div>
+
+        </div>
+    </div>
+    <div style="height:600px;width:1250px;background-color:rgb(225, 235, 238);">
+
+        <p style="text-align: center;font-size: 30px;padding-top: 70px;">LET’S GET SOME <span style="color: red;">WORK EXPERIENCE</span></p>
+    
+        <div id="box2">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div> 
+        <div>
+            <div style="height:400px;width:1250px;background-color:rgb(211, 210, 210);">
+    
+                <p style="text-align: center;font-size: 33px;padding-top: 70px;">HOW ABOUT  <span style="color: red;">UPSKILLING ?</span></p>
+               </div>
+        </div>
+       <div id="fr">
+    <div>
+        <img  style ="color:white;padding: 90px;padding-left: 300px;"src=""alt="n"/>
+    </div> 
+     <div id="master">
+        <div>
+           <p style="font-size: 25px;text-align: center;line-height:1px"> WE ARE CONSTANTLY <span style="color: red;">GROWING</span></p>
+           <div style="padding-left:20px;height:1px;width: 480px;border: 0px solid rgb(80, 79, 79);margin:auto;background-color:rgb(131, 130, 130);"></styl></div>
+       </div>
+ <p>We are on a mission to help every student in India. Upgrading your CV and getting you a meaningful job remains our sole motive and we are not stopping anytime soon.</p>       <div style="height:100px;width: 500px;border: 0px solid rgb(80, 79, 79);margin-left: 60px;">
+          
+       </div> 
+    </div>
+       </div> 
+       <div><a href="index2.html"></a></div>
+       <div id="container1">
+             <div class="slider">
+                 <div class="slide-track">
+                     <div class="slide">
+                         <div id="bs">
+                         <div><img style ="color:white;margin-left:180px;margin-top: 10px;"src="hvhjj"alt="n"/></div>  
+                         
+                      <div style="margin-top: 40px;height:90px;width: 250px; margin-right:100px;">
+                           <p style="font-size: 25px;line-height: 1px;"> Harshil Bhanta</p>
+                       <p >  Intern at Porsche</p>
+                   </div>  
+                        </div>
+                         <div id="bs">
+                             <p> "I was on a look out for an internship to spend my summer productively and I stumbled upon Inter Theory. Their team was very kind and kept me updated. I applied for Viacom18 and got through. I thank Intern Theory team for giving me this opportunity."</p>
+                         </div>
+       
+                   </div>
+                   <div class="slide">
+                       <div id="bs">
+                           <div><img style ="color:white;margin-left:180px;margin-top: 10px;"src="hvhjj"alt="n"/></div>  
+                           
+                        <div style="margin-top: 40px;height:90px;width: 250px; margin-right:100px;">
+                             <p style="font-size: 20px;line-height: 1px;"> Siddharth Viyyapu</p>
+                         <p > Intern at Gooseberr</p>
+                     </div>  
+                          </div>
+                           <div id="bs">
+                               <p>"I created my profile because I had before Intern Theory, not come across a consultancy that would execute the responsibility of getting a result for your application irrespective of being failure or success the way they did. They've set the bars really high! Kudos team!""</p>
+                           </div>
+                   </div>
+                   <div class="slide">
+                       <div id="bs">
+                           <div><img style ="color:white;margin-left:180px;margin-top: 10px;"src="hvhjj"alt="n"/></div>  
+                           
+                        <div style="margin-top: 40px;height:90px;width: 250px; margin-right:100px;">
+                             <p style="font-size: 25px;line-height: 1px;">   Amani Nagda</p>
+                         <p >Intern at Viacom18</p>
+                     </div>  
+                          </div>
+                           <div id="bs">
+                               <p> "I was on a look out for an internship to spend my summer productively and I stumbled upon Inter Theory. Their team was very kind and kept me updated. I applied for Viacom18 and got through. I thank Intern Theory team for giving me this opportunity."</p>
+                           </div>
+                   </div> 
+                    <div class="slide">
+                       <div id="bs">
+                           <div><img style ="color:white;margin-left:180px;margin-top: 10px;"src="hvhjj"alt="n"/></div>  
+                           
+                        <div style="margin-top: 40px;height:90px;width: 250px; margin-right:100px;">
+                             <p style="font-size: 20px;line-height: 1px;"> Sshikha Bodwaani</p>
+                         <p >HR at BookMyShow</p>
+                     </div>  
+                          </div>
+                           <div id="bs">
+                               <p>"We have been using InternTheory for over a year now and are very happy with the quality of applications that we receive. Their team has been very helpful in screening applications for the various internship requirements we had. It has been a delight working with them."</p>
+                           </div>
+                   </div>
+       
+                 </div>
+             </div>
+             </div>
+             
+    <div id="container2">
+        <!-- <div style="border: 1px solid black;height:130px;width:60px;margin-bottom: 1000px;">
+            <img style="height:30px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbUIstkkBc48WXEYG9Gzgx-SHCHSZcl451xw&usqp=CAU"/><br>
+            <img style="height:30px;background-color: white;"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png"/><br>
+            <img style="height:30px;background-color: white;"  src="https://brandlogos.net/wp-content/uploads/2016/06/linkedin-logo-512x512.png"/><br>
+            <img style="height:30px;background-color: white;" src="data:image/png;base64,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"/><br>
+        </div> -->
+      
+        
+   <div id="mdn">
+       <div>BY PLACE
+        <div style="height:1px;width: 200px;border: 1px solid rgb(80, 79, 79);background-color:rgb(131, 130, 130);margin-left: 100px;line-height: 90px;"></div>
+        <ul type="none" style="text-align: left;margin-left: 200px;margin: 20px;">
+            <li>Internships In Mumbai</li>
+            <li>  Internships In Delhi </li>
+            <li> Internships In Bangalore</li>
+            <li> Internships In Pune</li>
+            <li> Internships In Hyderabad</li>
+        </ul>
+       </div>
+     
+       <div>BY PROFILE
+        <div style="height:1px;width: 200px;border: 1px solid rgb(80, 79, 79);background-color:rgb(131, 130, 130);margin-left: 100px;line-height: 90px;"></div>
+        <ul type="none" style="text-align: left;margin-left: 200px;margin: 20px;">
+            <li>  Marketing Internships</li>
+            <li>  Business Development Internships</li>
+            <li> Content Writing Internships</li>
+            <li>  Graphic Designing Internships</li>
+            <li>      HR Internships</li>
+            <li> Engineering Internships</li>
+        </ul>
+       </div>
+       <div>BY TYPE
+        <div style="height:1px;width: 200px;border: 1px solid rgb(80, 79, 79);background-color:rgb(131, 130, 130);margin-left: 100px;line-height: 90px;"></div>
+        <ul type="none" style="text-align: left;margin-left: 200px;margin: 20px;">
+            <li> Full Time Internships</li>
+            <li>   Part Time Internships</li>
+            <li>      Work From Home Internships</li>
+        </ul>
+       </div>
+       </div>
+       <div id ="bdm" style="font-size:15px">
+           <div>REFUND & CANCELLATION POLICY</div>
+           <div>COURSES</div>
+           <div>TERMS AND CONDITIONS</div>
+           <div>PRIVACY POLICY</div>
+           <div>CONTACT US</div>
+           <div>ABOUT US</div>
+           <div>SITEMAP</div>
+       </div>
+       <div style="height:1px;width:1000px;border: 1px solid rgb(80, 79, 79);background-color:rgb(131, 130, 130);margin-left: 120px;line-height:-1x;">
+    <p style="text-align: center;color: white;">© 2015 - 2022 INTERNTHEORY. ALL RIGHTS RESERVED.</p>
+    </div>
+   
+   </div>
+ </div>
+</body>
+</html>
+<script src="index.js"></script>

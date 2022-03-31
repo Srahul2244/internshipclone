@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+    #ps1{
+        display: grid;
+        grid-template-rows: repeat(2,1fr);
+        grid-template-columns:repeat(3,1fr) ;
+        gap:20px;
+       
+    }
+    #ps1>div{
+        /* border: 1px solid red; */
+        height: 450px;
+        width:300px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
+    #im{
+        height: 200px;
+        width:300px;
+        /* border: 1px solid red; */
+        margin: auto;
+    }
+    #nm4{
+        color:blue
+    }
+    #nm{
+font-size: 20px;
+    }
+    #nm2{
+        color: rgb(102, 101, 101);
+        margin-left:20px;
+    }
+    #nm3{
+        margin-left:100px;
+        color: red;
+    }
+    #p{
+        height:100px;
+        width:200px;
+        background-color: aqua;
+        color: aliceblue;
+        font-size: 25px;
+    }
+</style>
+</head>
+<body>
+    <div id="boss">
+        <div id="ram">
+            <div>
+                <a href="index1.html"><img  id="bd"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAMFBMVEX///8AAADl5eX09PTV1dUICAiurq5TU1Orq6tJSUnc3Nzt7e1ERET6+vpRUVG9vb0gCS9GAAAA8ElEQVR4nO3dOQ4CQRAEQZblPv//W2yUFsLoNSKekGb1SLPbAQAAAAAAAAAAAADfbodh9+kC9ViGXaYL1Hm6yWm6QGlSmpQmpUlpUpqUJqVJaVKalCalSWlSmpQmpUlpUpqUJnWdbrLBjXqd9pwuAAAAAMCvzstx1Ba3x9f09rjBJjbq0qQ0KU1Kk9KkNClNSpPSpDQpTUqT0qQ0KU1Kk9KkNClvQet9mnW5TRcAAAAAgP/d98PW6QJljy27fWlSmpQmpUlpUpqUJqVJaVKalCalSWlSmpQmpUlpUpqUJuWPs3LLAAAAAAAAAAAAAGAbPhzZL1DD5UvKAAAAAElFTkSuQmCC"alt=""/></a>
+            </div>
+            <div>
+                <img  id="pr"src="" alt="Internships for student"/>
+            </div>
+        </div>
+
+            <div class="shyam">
+                <div>
+                   <a href="cart.html"target="blank"><img id="bd1" src="data:image/png;base64,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"/></a>
+                </div>
+                <div id="bd2">
+                    <a href="sign.html"target="blank">SIGN IN</a>
+                </div>
+                <div style="text-decoration:none;margin-top:18px;font-size:19px;">
+                    <a href="checkout.html"target="blank">checkout</a>
+                </div>
+                </div>
+        </div>
+        <div id="ps1">
+
+        </div>
+        <div id="p">
+          
+        </div>
+</body>
+<script>
+  
+ 
+
+  var cartObj=JSON.parse(localStorage.getItem("cartItem"))||[];
+ 
+  var total = cartObj.reduce(function (sum, elem, index, arr) {
+    return sum + Number(elem.price);
+  }, 0);
+//   console.log(total)
+ 
+  document.querySelector("#p").innerText =` you have items in cart and  total is Rs ${total}`;
+     
+  function displayData(CartObj)
+ 
+  {
+
+
+
+    document.querySelector("#ps1").innerHTML="";
+
+   cartObj.map(function(elem){
+
+
+        var div=document.createElement("div");
+
+        var img =document.createElement("img");
+        img.setAttribute("src",alt="IT Starter Pack (4 Courses)",elem.image);
+        img.setAttribute("id","im")
+        
+        // console.log(img)
+
+        var name=document.createElement("p");
+        name.textContent=elem.name;
+        name.setAttribute("id","nm")
+
+        var name2=document.createElement("p");
+        name2.textContent=elem.name2;
+        name2.setAttribute("id","nm2")
+
+        var nam5=document.createElement("p");
+        nam5.setAttribute("id","nm5")
+      
+
+        var nam3=document.createElement("p");
+        nam3.textContent=elem.nam3;
+        nam3.setAttribute("id","nm3")
+      
+       
+        var name4=document.createElement("p");
+        name4.textContent=elem.name4;
+        name4.setAttribute("id","nm4")
+
+        var price =document.createElement("p");
+        price.textContent=elem.price;
+        price.setAttribute("id","m")
+
+     
+
+        
+
+        div.append(img,name,name2,nam5,nam3,name4,price)
+        // console.log(div)
+        document.querySelector("#ps1").append(div)
+
+    });
+}
+displayData(cartObj)
+</script>
+</html>

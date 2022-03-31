@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+ * body{
+            font-family: sans-serif;
+            width: 450px;
+            margin: auto;
+            margin-top: 10%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            justify-content: space-around;
+        }
+       
+        #form{
+            display: grid;
+            width: 400px;
+            gap:20px  ;
+            margin: auto; 
+            padding-bottom: 3%;
+        }
+        #sign{
+            width: 250px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            background-color: black;
+            color: rgb(238, 232, 232);
+        }
+        #create{
+            width: 250px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            background-color: white;
+        }
+
+        input{
+         
+            height: 30px;
+            font-size: 20px;
+        }
+
+
+    </style>
+  </head>
+  <body>
+   
+    <form>
+      <input id="name" type="text" placeholder="Enter email"required /><br>
+      <input id="pass" type="password" placeholder="Enter password"required /><br>
+      <input id="user" type="text" placeholder="Enter username"required /><br>
+      <input id="sign" type="submit" value="sign in" />
+
+      <input id= "create" type="submit" value="login"/>
+    </form>
+  </body>
+</html>
+
+<script>
+     document.querySelector("#create").addEventListener("click",function(){
+        window.location.href="login.html";
+    })
+  document.querySelector("form").addEventListener("submit", signUpFun);
+
+  var userData = JSON.parse(localStorage.getItem("userCreds"))||[]
+  function signUpFun() {
+    event.preventDefault();
+
+    var userObj = {
+      email: document.querySelector("#name").value,
+      password: document.querySelector("#pass").value,
+      userName: document.querySelector("#user").value,
+    };
+    // console.log(userObj);
+    userData.push(userObj);
+    // console.log(userData)
+    localStorage.setItem("userCreds",JSON.stringify(userData))
+
+  }
+</script>
